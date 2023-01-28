@@ -1,0 +1,40 @@
+<nav class="navbar navbar-litght bg-primary">
+    <div class="container-fluid">
+        <h1 style="color:black" text-align="center">SalesForcasting</h1>
+        <div class="d-flex">
+            <a routerLink="/login">
+            <button class="btn btn-danger mx-2">Logout</button>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="main">
+    <div class="upload">
+      <!-- <form> -->
+     <form [formGroup] = "salesForm" (ngSubmit)="onSubmit()">  
+      <input class="choose" type="file" name = "File Upload" id = "csvUpload" value="Upload file" accept=".csv" (change)="onFileChange($event)"/>
+      <br>
+      <br>
+      <table><td>
+      <div class="dropdown">
+        <tr><p class="para1">Time Period</p></tr> <br>
+        <tr><p class="para2">No of weeks/years</p></tr>
+        
+      </div></td>
+      <td>
+        <tr><select formControlName="period" class="interval">
+          <option>Weekly</option>
+          <option>Yearly</option>
+        </select></tr><br><br>
+      <tr><div class="number">
+        <input formControlName="count" type="number">
+      </div></tr></td></table>
+      <div class="submit">
+          <input class = "btn btn-success" type="submit" value = "Submit">
+      </div>
+  </form>
+    </div>
+  </div>
+
+

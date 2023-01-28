@@ -1,0 +1,24 @@
+{
+  "productList": [
+    
+  ],
+  "signupUsers": [
+    {
+      "fullname": "divyadharshini",
+      "email": "diviyadharshini2000@gmail.com",
+      "password": "Dd@Sales",
+      "mobile": 9361766932,
+      "id": 1
+    },
+    {
+      "fullname": "ananthi",
+      "email": "selva0204@gmail.com",
+      "password": "1234567890",
+      "mobile": 9876543210,
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

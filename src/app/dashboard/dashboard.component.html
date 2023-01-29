@@ -33,6 +33,11 @@
       <div class="submit">
           <input class = "btn btn-success" type="submit" value = "Submit">
       </div>
+      <div *ngIf="showPrediction" class="predictionCtr">
+        <div class="predictionRow"><p><b>Accuracy</b></p><p>{{prediction?.accuracy}}</p></div>
+        <div class="predictionRow"><p><b>RMSE</b></p><p>{{prediction?.rmse}}</p></div>
+        <div class="predictionRow"><p><b>MAE</b></p><p>{{prediction?.mae}}</p></div>
+      </div>
   </form>
     </div>
   </div>

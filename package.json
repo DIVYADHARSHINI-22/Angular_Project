@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "start:json": "json-server --watch db.json",
+    "start:backend": "python3 ./Backend/app.py",
     "test": "ng test"
   },
   "private": true,

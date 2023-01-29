@@ -15,6 +15,8 @@ import { lastValueFrom } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
   public salesForm!: FormGroup;
+  public prediction!: any | null;
+  public showPrediction!: boolean;
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
   ngOnInit(): void {
     this.salesForm = this.formBuilder.group({
@@ -23,6 +25,12 @@ export class DashboardComponent implements OnInit {
       period: new FormControl(''),
       count: new FormControl(''),
     });
+    this.prediction = {
+      accuracy: '',
+      rmse: '',
+      mae: '',
+    };
+    this.showPrediction = false;
   }
 
   onFileChange(event: any) {
@@ -41,12 +49,21 @@ export class DashboardComponent implements OnInit {
   async onSubmit() {
     console.log('On submit clicked');
 
-    const result = await lastValueFrom(
-      this.http.post<any>(
-        'http://localhost:3000/productList',
-        this.salesForm.value
-      )
+    // const result = await lastValueFrom(
+    //   this.http.post<any>(
+    //     'http://localhost:3000/productList',
+    //     this.salesForm.value
+    //   )
+    // );
+
+    const [accuracy, rmse, mae] = await lastValueFrom(
+      this.http.get<any>('http://127.0.0.1:5000/predict')
     );
-    alert('Successfully uploaded');
+    this.showPrediction = true;
+    this.prediction = {
+      accuracy,
+      rmse,
+      mae,
+    };
   }
 }

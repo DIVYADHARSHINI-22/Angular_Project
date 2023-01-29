@@ -2,3 +2,15 @@ form{margin-top: 200px;}
 form{text-align: center;}
 table{margin-left: auto;}
 table{margin-right: auto;}
+
+.predictionCtr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.predictionRow {
+    display: flex;
+    gap: 20px;
+}
